@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связь</title>
+    <link rel="stylesheet" href="zachet.css">
+    <link rel="shortcut icon" href="tlogo.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    #header{
+        background: linear-gradient(to right, rgb(224, 214, 22),rgb(143, 129, 21)); color: #f1f1f1; text-align: center; font-size: 25px;
+    }
+   h1{
+    padding-left: 20px; color: #fff;
+   }
+   #navbar a:hover, #navbar li a:hover {
+    background-color: #e2de60;
+    color: #fff;
+}
+   
+        @media screen and (max-width: 768px) {
+            #navbar {
+                text-align: center;
+            }
+
+            #navbar a {
+                float: none;
+                display: inline-block;
+            }
+
+            #header h1 {
+                font-size: 20px;
+            }
+
+            #contact form {
+                width: 80%;
+            }
+        }
+</style>
+</head>
+<body>
+    <section id="header">
+    <header>
+        <h1>Свяжитесь с нами</h1>
+        <nav id="navbar">
+            <a href="index.html" class="logo">Toyota</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="zachet.html">Products</a>
+                    
+                    
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        
+        
+    </header></section><br><br><br><br><br><br>
+    
+    <section id="contact">
+        <h1>Свяжитесь с нами</h1>
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Тема:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Сообщение:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+       
+
+    </section>
+ 
+  <div id="scroll-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+
+
+</div>
+<footer>
+    <div class="primary">
+        <div class="column">
+            <h3>Присоединяйтесь к нам в социальных сетях</h3>
+            <div class="social">
+                <i class="fab fa-facebook-square" aria-hidden="true"></i><a href="https://www.facebook.com/?locale=ru_RU">Facebook</a>
+               <br> <i class="fab fa-youtube" aria-hidden="true"></i><a href="https://www.youtube.com/">youtube</a>
+               <br><i class="fab fa-vk" aria-hidden="true"></i><a href="https://m.vk.com/">VK</a>
+               <br><i class="fab fa-twitter-square" aria-hidden="true"></i><a href="https://twitter.com/?lang=ru">Twitter</a>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Ссылки</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="zachet.html">Catalog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.toyotakz.com/">Official Site</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Принимаем к оплате</h3>
+            
+            <i class="fab fa-cc-visa" aria-hidden="true"></i>
+            <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+            <i class="fab fa-cc-amex" aria-hidden="true"></i>
+            <i class="fab fa-cc-discover" aria-hidden="true"></i>
+        </div>
+    </div>
+    
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="zachet.css">
+    <link rel="shortcut icon" href="tlogo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+         body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://wallpaper.dog/large/10921241.jpg);
+    transition: background-color 0.3s ease;
+}
+
+#header {
+    background: linear-gradient(to right, rgb(23, 40, 226), rgb(21, 40, 150));
+    color: #f1f1f1;
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+#navbar a:hover,
+#navbar li a:hover {
+    background-color: #6060e2;
+    color: #fff;
+}
+
+#profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    max-width: 400px;
+    width: 100%;
+    background-color: #3a3a3a;
+    border: 1px solid #3138c7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.toggle-link {
+    cursor: pointer;
+    color: #d9d9d9;
+    margin-top: 10px;
+}
+
+.toggle-link:hover {
+    color: rgb(20, 178, 196);
+    transition: color 0.3s ease;
+}
+
+#submit {
+    padding: 10px;
+    background-color: rgb(21, 40, 150);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#submit:hover {
+    background-color: rgb(232, 232, 232);
+    color: #1b1a1a;
+}
+
+
+@media (max-width: 600px) {
+    #profile-container {
+        padding: 10px;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <header>
+            <h1>Profile</h1>
+            <nav id="navbar">
+                <a href="index.html" class="logo">Toyota</a>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="zachet.html">Products</a>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="profile.html">Profile</a></li> 
+                </ul>
+            </nav>
+        </header>
+    </section>
+
+    <div id="profile-container">
+        <div class="form-container" id="login-form-container">
+            <h2>Login</h2>
+           <form>
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="login" required> <br>
+
+            <label for="pass">Пароль:</label>
+            <input type="password" id="pass" name="pass" required><br>
+
+            <button id="submit" type="submit">Submit</button>
+           </form>
+           <a>Don't have an account?</a>
+            <p class="toggle-link" onclick="toggleForm('register')"> Create one for free.</p>
+        </div>
+
+        <div class="form-container" id="register-form-container" style="display: none;">
+            <h2>Register</h2>
+            <label for="login">E-mail:</label>
+            <input type="text" id="login" name="login" required> <br>
+
+            <label for="pass">Пароль:</label>
+            <input type="password" id="pass" name="pass" required><br>
+            
+            <label for="pass">Подтвердите пароль:</label>
+            <input type="password" id="pass" name="pass" required><br>
+
+            <button id="submit" type="submit">Submit</button>
+            <a>Already have an account? </a>
+            <p class="toggle-link" onclick="toggleForm('login')">Login here.</p>
+        </div>
+    </div>
+
+    <div id="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </div>
+        <footer>
+            <div class="primary">
+                <div class="column">
+                    <h3>Присоединяйтесь к нам в социальных сетях</h3>
+                    <div class="social">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i><a href="https://www.facebook.com/?locale=ru_RU">Facebook</a>
+                        <br><i class="fab fa-youtube" aria-hidden="true"></i><a href="https://www.youtube.com/">youtube</a>
+                        <br><i class="fab fa-vk" aria-hidden="true"></i><a href="https://m.vk.com/">VK</a>
+                        <br><i class="fab fa-twitter-square" aria-hidden="true"></i><a href="https://twitter.com/?lang=ru">Twitter</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Ссылки</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="zachet.html">Catalog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.toyotakz.com/">Official Site</a></li>
+            </ul>
+                </div>
+                <div class="column">
+                    <h3>Принимаем к оплате</h3>
+                    
+                    <i class="fab fa-cc-visa" aria-hidden="true"></i>
+                    <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+                    <i class="fab fa-cc-amex" aria-hidden="true"></i>
+                    <i class="fab fa-cc-discover" aria-hidden="true"></i>
+                </div>
+            </div>
+        </footer>
+    
+    <script>
+        function toggleForm(formType) {
+            const loginForm = document.getElementById('login-form-container');
+            const registerForm = document.getElementById('register-form-container');
+
+            if (formType === 'register') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'flex';
+            } else if (formType === 'login') {
+                loginForm.style.display = 'flex';
+                registerForm.style.display = 'none';
+            }
+        }
+
+
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

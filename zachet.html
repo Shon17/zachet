@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="zachet.css">
+    <link rel="shortcut icon" href="tlogo.png"/>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    #header{
+        background: linear-gradient(to right, rgb(224, 22, 22), rgb(143, 21, 21)); color: #f1f1f1; text-align: center; font-size: 25px;
+    }
+   h1{
+    padding-left: 20px; color: #fff;
+   }
+   .fas.fa-times{
+    cursor: pointer;
+   }
+   #tocart:hover{
+    background-color: rgb(232, 232, 232);
+    color: #1b1a1a;
+    transition: background-color 0.3s ease, color 0.3s ease;
+   }
+   @media screen and (max-width: 768px) {
+            #navbar {
+                text-align: center;
+            }
+
+            #navbar a {
+                float: none;
+                display: inline-block;
+            }
+
+            #header h1 {
+                font-size: 20px;
+            }
+
+            #contact form {
+                width: 80%;
+            }
+        }
+  
+</style>
+</head>
+<body>
+    <section id="header">
+    <header>
+        <h1>Интернет-магазин</h1>
+        <nav id="navbar">
+            <a href="index.html" class="logo">Toyota</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="zachet.html">Products</a>
+                    
+                    
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                
+            </ul>
+        </nav>
+        
+        
+    </header></section><br><br><br><br><br><br>
+    
+    <section id="cata">
+        <div id="catalog">
+        <div class="category">
+            <h1>Серийные</h1>
+            <div class="products" id="category1"></div>
+        </div>
+
+        
+        <div class="category">
+            <h1>Спортивные</h1>
+            <div class="products" id="category2"></div>
+        </div>
+    </div>
+       
+
+    </section>
+    <div id="cart">
+        <h2>Корзина покупок</h2>
+        <div id="minicart">
+        
+        <ul id="cart-list"></ul>
+       
+    </div>
+        <button onclick="checkout()">Оформить заказ</button>
+        <i class="fas fa-times" onclick="reset()"></i>
+        <p>Total: $<span id="total">0</span>K</p>
+    </div>
+    
+   <div id="cart-container">
+<i id="open-cart-button" class="fas fa-shopping-cart" onclick="switchToCart()"></i>
+</div>
+
+    <script>
+        const productsCategory1 = [
+            { id: 1, name: "Camry", price: 25, image: "https://www.topgear.com/sites/default/files/cars-car/image/2019/04/toyota-camry-hybrid-exterior-dynamic-not-uk-spec-26.jpg" },
+            { id: 2, name: "Alphard", price: 40, image: "https://global.toyota/pages/models/images/alphard/alphard_w610_02.jpg" },
+            { id: 3, name: "Trueno", price: 10, image: "https://cs11.pikabu.ru/post_img/big/2018/06/28/11/1530211824170242109.jpg" },
+            { id: 4, name: "Corolla", price: 20, image: "https://d8a6a33f-3369-444b-9b5f-793c13ff0708.selcdn.net/media/common/just_strip/tradeins.space/uploads/models_gallery_image/13778/450d7266a8acac506ddc97c36c79cedee2addd42.jpeg?v77" },
+            { id: 5, name: "Land Cruiser", price: 85, image: "https://global.toyota/pages/news/images/2021/08/02/1330/001.jpg" },
+            { id: 6, name: "Highlander", price: 35, image: "https://media.ed.edmunds-media.com/toyota/grand-highlander/2024/oem/2024_toyota_grand-highlander_4dr-suv_platinum_fq_oem_1_1280.jpg" },
+        ];
+
+        const productsCategory2 = [
+            { id: 11, name: "Supra", price: 43, image: "https://img-c.drive.ru/models.large.main.images/0000/000/000/001/58b/48d7216d1dc8ce7f-main.jpg" },
+            { id: 12, name: "GT-86", price: 29, image: "https://www.topgear.com/sites/default/files/cars-car/image/2018/07/toyota-gt86-047.jpg" },
+            { id: 13, name: "GR-86", price: 29, image: "https://hips.hearstapps.com/hmg-prod/images/2022-gr86-premium-trackbred-042-1628887947.jpg?crop=0.776xw:0.655xh;0.0986xw,0.178xh&resize=1200:*" },
+            { id: 14, name: "MR-2", price: 100, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI_lDhazoYI-l5Ee4EUQt2GMqVcs-wBB4qZ77WSxkHZpf9PVgDg6Lh7FUrHcye2xEM3rY&usqp=CAU" },
+            { id: 15, name: "Concept Car", price: 100, image: "https://media.autoexpress.co.uk/image/private/s--RocBm5qK--/v1698236712/evo/2023/10/Toyota%20FT-Se%20sports%20car%20concept%20final-6.jpg" }
+            
+        ];
+
+        const products = [...productsCategory1, ...productsCategory2];
+
+        
+        displayProducts(productsCategory1, 'category1');
+        displayProducts(productsCategory2, 'category2');
+        
+
+        function displayProducts(products, categoryId) {
+            const categoryElement = document.getElementById(categoryId);
+
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Цена: от $${product.price}K</p>
+                    <button id="tocart" onclick="addToCart(${product.id})">Добавить в корзину</button>
+                `;
+                categoryElement.appendChild(productElement);
+            });
+        }
+
+
+
+     
+
+        const cart = [];
+        const cartListElement = document.getElementById("cart-list");
+        const totalElement = document.getElementById("total");
+        const cartElement = document.getElementById("cart");
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCart();
+        }
+
+        function updateCart() {
+            cartListElement.innerHTML = "";
+            let cartTotal = 0;
+
+            cart.forEach(product => {
+                const cartItem = document.createElement("li");
+                cartItem.textContent = `${product.name} - $${product.price}K`;
+                cartListElement.appendChild(cartItem);
+                cartTotal += product.price;
+            });
+
+            totalElement.textContent = cartTotal;
+        }
+
+        function checkout() {
+            cart.length = 0;
+            updateCart();
+            alert("Заказ успешно оформлен!");
+        }
+function reset(){
+    cart.length = 0;
+    updateCart();
+}
+
+        function switchToCart() {
+    const catalogElement = document.getElementById("catalog");
+    const cartElement = document.getElementById("cart");
+
+    if (catalogElement.classList.contains("show")) {
+        catalogElement.classList.remove("show");
+        cartElement.classList.remove("hide");
+        cartElement.classList.add("show");
+    } else {
+        catalogElement.classList.add("show");
+        cartElement.classList.remove("show");
+        cartElement.classList.add("hide");
+    }
+}
+displayProducts(productsCategory1, 'category1');
+        displayProducts(productsCategory2, 'category2');
+
+    </script>
+  <div id="scroll-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+
+
+</div>
+<p class="little">Toyota Easy — это микрокредит на авто от официального дилера Тойота в Казахстане. Программа позволяет купить автомобиль с пробегом в кредит или совершенно новую модель в кредит. Микрокредитование на авто предоставляется на срок от 2 до 3 лет с отсрочкой оплаты до 70% стоимости.</p>
+<p class="little">ТОО «Тойота Мотор Казахстан» является дочерней компанией «Тойота Мотор Европа». Компания была основана 20 мая 2008 года в г. Алматы и начала свою деятельность 1 января 2009 года. Президент компании - г-н Джон Эндрю Томсон. На данный момент общее количество сотрудников составляет 105 человек.
+    Будучи официальным дистрибьютором Toyota, ТОО «Тойота Мотор Казахстан» занимается оптовыми продажами и доставкой автомобилей, оригинальных запасных частей и аксессуаров Toyota, обеспечением гарантии на них, а также отвечает за маркетинг бренда на территории Казахстана и Кыргызстана.
+    Благодаря высокому качеству бренд Toyota хорошо знаком и по достоинству ценится в Республике Казахстан и Кыргызской Республике. Задача ТОО «Тойота Мотор Казахстан» – обеспечить максимальную удовлетворенность потребителей, а также поддерживать надежные и долгосрочные отношения с казахстанскими и кыргызстанскими клиентами бренда даже в сложившихся непростых экономических и рыночных условиях.
+    В числе других приоритетов компании является создание лучшей в Казахстане и Кыргызстане сети продаж и послепродажного обслуживания автомобилей. На сегодняшний день официальная дилерская сеть Тойота включает шестнадцать дилерских центров
+    В целях будущего развития компании, в первую очередь, стоит приближение бренда Toyota к клиентам, предоставление им самых последних автомобильных достижений и обеспечение максимального удовлетворения их потребностей. </p>
+<footer>
+    <div class="primary">
+        <div class="column">
+            <h3>Присоединяйтесь к нам в социальных сетях</h3>
+            <div class="social">
+                <i class="fab fa-facebook-square" aria-hidden="true"></i><a href="https://www.facebook.com/toyotakaz/?locale=ru_RU">Facebook</a>
+               <br> <i class="fab fa-youtube" aria-hidden="true"></i><a href="https://www.youtube.com/@ToyotaKazakhstan_OfficialKZ">youtube</a>
+               <br><i class="fab fa-vk" aria-hidden="true"></i><a href="https://vk.com/toyotarussia">VK</a>
+               <br><i class="fab fa-twitter-square" aria-hidden="true"></i><a href="https://twitter.com/ToyotaMotorCorp?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Twitter</a>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Ссылки</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="zachet.html">Catalog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://www.toyotakz.com/">Official Site</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Принимаем к оплате</h3>
+            
+            <i class="fab fa-cc-visa" aria-hidden="true"></i>
+            <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+            <i class="fab fa-cc-amex" aria-hidden="true"></i>
+            <i class="fab fa-cc-discover" aria-hidden="true"></i>
+        </div>
+    </div>
+    
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
